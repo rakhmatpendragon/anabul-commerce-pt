@@ -33,6 +33,19 @@
   -webkit-backdrop-filter: blur(12px);
 }
 
+/* Glass card for filter bars */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Elevated shadow for cards */
+.elevated-shadow {
+  box-shadow: 0 8px 30px rgba(27, 28, 28, 0.06);
+}
+
 /* Active nav dot indicator */
 .active-dot::after {
   content: '';
