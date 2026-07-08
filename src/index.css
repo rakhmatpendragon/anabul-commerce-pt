@@ -6,3 +6,40 @@
     @apply bg-background text-on-background font-body-md;
   }
 }
+
+/* Material Symbols config */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Hide scrollbar for carousels */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Modern Organic Card Lift */
+.premium-card {
+  background-color: white;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 4px 20px -4px rgba(27, 28, 28, 0.05);
+}
+.premium-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 30px -10px rgba(159, 64, 45, 0.1);
+}
+
+/* Ambient Glass */
+.glass-header {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Active nav dot indicator */
+.active-dot::after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  background: currentColor;
+  border-radius: 50%;
+  margin: 2px auto 0;
+}
