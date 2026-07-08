@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Anabul | Premium Cat Lifestyle &amp; Wellness</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&amp;family=Plus+Jakarta+Sans:wght@300..800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#e2725b",
+                    "on-background": "#1b1c1c",
+                    "on-surface": "#1b1c1c",
+                    "on-secondary-fixed": "#07200f",
+                    "tertiary": "#605e5a",
+                    "secondary-container": "#c9e8cb",
+                    "outline": "#89726d",
+                    "secondary": "#4a654e",
+                    "error-container": "#ffdad6",
+                    "background": "#fcf9f8",
+                    "surface-dim": "#dcd9d9",
+                    "on-error-container": "#93000a",
+                    "tertiary-container": "#95928d",
+                    "primary-fixed": "#ffdad3",
+                    "surface-container-high": "#eae7e7",
+                    "surface-container-low": "#f6f3f2",
+                    "on-surface-variant": "#56423e",
+                    "on-primary-fixed": "#3e0500",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed": "#1c1c18",
+                    "surface-variant": "#e4e2e1",
+                    "outline-variant": "#ddc0ba",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#5a0d02",
+                    "tertiary-fixed-dim": "#c9c6c1",
+                    "surface-container-highest": "#e4e2e1",
+                    "inverse-surface": "#303030",
+                    "tertiary-fixed": "#e6e2dc",
+                    "surface": "#fcf9f8",
+                    "secondary-fixed-dim": "#b0ceb2",
+                    "primary-fixed-dim": "#ffb4a5",
+                    "secondary-fixed": "#cceace",
+                    "primary": "#9f402d",
+                    "on-tertiary-fixed-variant": "#484743",
+                    "inverse-on-surface": "#f3f0f0",
+                    "inverse-primary": "#ffb4a5",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#fcf9f8",
+                    "on-tertiary-container": "#2c2b28",
+                    "on-secondary-fixed-variant": "#334d38",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#4e6952",
+                    "on-primary-fixed-variant": "#802918",
+                    "surface-tint": "#9f402d",
+                    "surface-container": "#f0eded",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "40px",
+                    "base": "8px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Quicksand"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Quicksand"],
+                    "headline-lg": ["Quicksand"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-xl-mobile": ["Quicksand"],
+                    "headline-lg-mobile": ["Quicksand"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Modern Organic Card Lift */
+        .premium-card {
+            background-color: white;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 4px 20px -4px rgba(27, 28, 28, 0.05);
+        }
+        .premium-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -10px rgba(159, 64, 45, 0.1);
+        }
+
+        /* Ambient Glass */
+        .glass-header {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .active-dot::after {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 4px;
+            background: currentColor;
+            border-radius: 50%;
+            margin: 2px auto 0;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 glass-header shadow-sm">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-headline-md text-headline-md text-primary font-bold tracking-tight" href="#">Anabul</a>
+<div class="hidden md:flex gap-6">
+<a class="font-body-md text-label-md text-primary border-b-2 border-primary pb-1 active-dot" href="#">Home</a>
+<a class="font-body-md text-label-md text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="#">Nutrition</a>
+<a class="font-body-md text-label-md text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="#">Toys</a>
+<a class="font-body-md text-label-md text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="#">Grooming</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<input class="bg-surface-container-low border-none rounded-full px-4 py-2 text-label-md focus:ring-2 focus:ring-primary-container transition-all w-48 md:w-64" placeholder="Search..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-body-md">search</span>
+</div>
+<button class="relative p-2 rounded-full hover:bg-primary-fixed transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary">shopping_cart</span>
+<span class="absolute top-0 right-0 w-4 h-4 bg-primary text-white text-[10px] flex items-center justify-center rounded-full">2</span>
+</button>
+<button class="md:hidden p-2">
+<span class="material-symbols-outlined text-on-surface">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative px-margin-mobile md:px-margin-desktop py-12 md:py-24 max-w-container-max mx-auto overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="z-10 order-2 lg:order-1">
+<div class="inline-flex items-center gap-2 bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full text-label-md mb-6">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">pets</span>
+                        New Collection is Here
+                    </div>
+<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl mb-6 text-on-background max-w-lg">
+                        Curated Joy for Your <span class="text-primary">Feline Family.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-md">
+                        Premium organic nutrition, boutique toys, and professional grooming essentials designed for the discerning modern cat owner.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-label-md hover:shadow-lg hover:-translate-y-1 transition-all active:scale-95">
+                            Shop the Collection
+                        </button>
+<button class="border-2 border-secondary text-secondary px-8 py-4 rounded-full font-label-md hover:bg-secondary/5 transition-all">
+                            Our Story
+                        </button>
+</div>
+</div>
+<div class="relative order-1 lg:order-2 h-[400px] md:h-[600px]">
+<div class="absolute inset-0 bg-primary-fixed rounded-[40px] rotate-3 -z-10"></div>
+<div class="w-full h-full rounded-[40px] overflow-hidden shadow-2xl rotate-0 transition-transform duration-700 hover:scale-[1.02]">
+<img class="w-full h-full object-cover" data-alt="A warm, high-key lifestyle photograph of a playful ginger tabby cat jumping joyfully in a sun-drenched, minimalist living room with creamy off-white walls and organic wooden textures. The lighting is soft and natural, emphasizing the cat's soft fur and a high-end, premium boutique e-commerce aesthetic with a palette of terracotta and sage greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-Lz5fqXI_RO3RN6-RQROBLt--i9Hh7taClda7UaQNoq6J7cahBNXh7x_03UJSIry3P1-Sg0Gf9GdddDm0-QYPTkUgUr_xNfU6OiXoyKX0gC8gYYdPAiY4MOuPOo93EfwssGyppzP0Ut9e7w2YPo-SivXkCTSdIAxA-lnSNhI67F96eai357ZuSnKyhCM-gY_PbWrI6akDgMhauIBpJw7SwMq-KNIMRhe9oj5hbQW81qU0y-y73sJarVQYLMogTaKDZA-BV3ygVDg"/>
+</div>
+<!-- Floating Badge -->
+<div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce hover:animate-none">
+<div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div>
+<p class="text-label-md font-bold">Vet-Approved</p>
+<p class="text-[12px] text-on-surface-variant">Nutrition &amp; Care</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trending Now Carousel -->
+<section class="py-16 bg-surface-container-low overflow-hidden">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-10 flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-2">Trending Now</h2>
+<p class="text-on-surface-variant">Top-rated favorites from the Anabul community.</p>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full border border-outline/30 flex items-center justify-center hover:bg-primary-container hover:text-white transition-all" id="prevBtn">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline/30 flex items-center justify-center hover:bg-primary-container hover:text-white transition-all" id="nextBtn">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex gap-6 overflow-x-auto hide-scrollbar px-margin-mobile md:px-margin-desktop pb-8 snap-x" id="carousel">
+<!-- Product Card 1 -->
+<div class="min-w-[280px] md:min-w-[320px] snap-start">
+<div class="premium-card rounded-2xl p-4 group">
+<div class="relative rounded-xl overflow-hidden aspect-square mb-4 bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A studio product photograph of a premium, organic cat treat bag featuring elegant terracotta and charcoal packaging design. The bag is placed on a soft, textured off-white linen surface with ambient, warm lighting and soft shadows, reflecting a luxury pet care brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsVD388tUOoxC2BY6CR2rLiLIxWt4jtXvFEGPZQxWoR5od-2yg86pFFUVOtEqlON9vg7E7Jwxzm4csvHlKKp5RuFI1n_2ibMT9gii4utJ0LOO2i7E9LngZ7UGoD8ytjwapSIvdIY-bbFLJRKrwsjYP3KorVicmG24cCzp0B-giIP7tJlmiYbM2BZKJCN9z4B78cDTbMBkwlqByZgZsrt3Y3rifsMQi7ubbgm2f4cUKdEjuAXqCiaPLENv6kqEXi32qLkd3h9SKCaI"/>
+<span class="absolute top-3 left-3 bg-primary text-on-primary text-[12px] font-bold px-3 py-1 rounded-full">New</span>
+</div>
+<h3 class="font-headline-md text-body-lg mb-1">Ocean Harvest Treats</h3>
+<p class="text-on-surface-variant text-label-md mb-3">Grain-free organic salmon bites</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold">$18.00</span>
+<button class="bg-secondary-container text-on-secondary-container p-2 rounded-full hover:bg-secondary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="min-w-[280px] md:min-w-[320px] snap-start">
+<div class="premium-card rounded-2xl p-4 group">
+<div class="relative rounded-xl overflow-hidden aspect-square mb-4 bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A luxury designer cat bed in sage green velvet, featuring a minimalist round organic shape. The bed is styled in a modern, airy interior with warm morning light casting soft shadows. The aesthetic is sophisticated, cozy, and high-end." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4BiBaiD2P_sgqOMzbDGVGnmP1J8jslP4tQ3V08RZNq_gRMFhnohtpvpn67iV3foc0yoOOOlgw2GPPqOhafIIJxlm5aFc5Q_eLKVgZ38ozGYvpkFr5ePESlPKLVwUuiLurmAnwXM-7nftmTEPgSRt_rgd_3PdPsmsXs5GVyDL_f2wER8hWb7NnuyQdLMpDRchVMQN5vdgvuu8L5pgA5prPJEeHvCOSslqxCzqm7PkFdTjx8V9Gbkg-uaGh5EAnwiaP0jc3Cj433Rg"/>
+</div>
+<h3 class="font-headline-md text-body-lg mb-1">Velvet Cloud Bed</h3>
+<p class="text-on-surface-variant text-label-md mb-3">Ergonomic orthopaedic support</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold">$85.00</span>
+<button class="bg-secondary-container text-on-secondary-container p-2 rounded-full hover:bg-secondary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="min-w-[280px] md:min-w-[320px] snap-start">
+<div class="premium-card rounded-2xl p-4 group">
+<div class="relative rounded-xl overflow-hidden aspect-square mb-4 bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A minimalist, sculptural cat scratching post made of natural jute and light oak wood. The design is modern-organic, fitting seamlessly into a high-end home decor. High-key lighting highlights the natural textures of the materials." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdE4MC_FQeCp3onltTXS7UMC5Pxq5aH4nd5UOySI-HOuSyr5K-SY65PUMJlUkOwTNfDX4MWbrVD5oEecoD0nmoXvPpWE_VBKVmpaoB2jq8I7VkcD7X7JH8Qn7VdneJFDKS3gonxnR70zhPW62-2wwJF2yfMt-7Wm0DQcUTtxtQD1FwJXl0evFPoZujFB7n6k-GRHDVWJB9qSMDnnTP0i2jRoRa-GqBzF_TaoFfCHRaRkK8-KJXNCUAhVVfKqJ2ve8BJORqfPS2o4A"/>
+<span class="absolute top-3 left-3 bg-secondary text-on-secondary text-[12px] font-bold px-3 py-1 rounded-full">Organic</span>
+</div>
+<h3 class="font-headline-md text-body-lg mb-1">Oak &amp; Jute Scratcher</h3>
+<p class="text-on-surface-variant text-label-md mb-3">Sustainable natural materials</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold">$124.00</span>
+<button class="bg-secondary-container text-on-secondary-container p-2 rounded-full hover:bg-secondary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="min-w-[280px] md:min-w-[320px] snap-start">
+<div class="premium-card rounded-2xl p-4 group">
+<div class="relative rounded-xl overflow-hidden aspect-square mb-4 bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Close-up of a high-end cat grooming kit including a polished wooden brush and natural essential oils. The shot is minimalist with soft bokeh, highlighting the craftsmanship of the tools against a neutral, warm background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGb97-CCGHirKYpugGtMif8I0R6hli67OTnT2nSSCHJsUui56Cm-finbU4AusvKMrIwuEN9-gl8qAtYcux0ZFA_Xc9KxWKmWvCFauR9to1pvPnOVWTa9YiqmIWmtQWAFzkaExRQ6o_HF0Ojof0eO6h_ggpV05rr4l6h4DUIvJA8tfaw2P-onGEm5llkTIAuTrxmVoQyAvKdXZK4LPLAbYkZ-TsKlqHk1AY8U8VYk99dskRyl7gx1GR28WUJ_dXwGurAe1SJ6T3sFk"/>
+</div>
+<h3 class="font-headline-md text-body-lg mb-1">Zen Grooming Kit</h3>
+<p class="text-on-surface-variant text-label-md mb-3">Professional bamboo brush set</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold">$42.00</span>
+<button class="bg-secondary-container text-on-secondary-container p-2 rounded-full hover:bg-secondary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Shop by Category (Asymmetric Bento) -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4">Shop by Category</h2>
+<div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 grid-rows-2 gap-6 h-auto md:h-[600px]">
+<!-- Nutrition -->
+<a class="md:col-span-8 group relative overflow-hidden rounded-3xl premium-card" href="#">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" data-alt="A beautifully arranged bowl of premium cat food with fresh organic ingredients like berries, salmon, and leafy greens visible. The food is in a ceramic artisan bowl. The scene is bright and airy, with a focus on healthy, natural feline nutrition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2pf8CGNCdHDEQYoFKmFefjzgH0Vi_MUy64I9dHAAw_-UoelhksFBAvKa7qmKhcao1L1inqrslKwa8prFR5zH-uQ4Rf-wIp0rH4DUGv5b8RASOzt4HyniGs697fegYFRJz8vJdcr4uUZ3LARenECLpzKHn2kVPiJoTsYc6CisRor-1z-pCIZfVdxZEKw1LqEaGvEiQxmjZSWicSX4O1Yv_Y8eUIWG5Gnzr3J2p8Gy0icwxEYpEg9MWMRNsDmiZPfoooBPp6dksxMo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-8 left-8 text-white">
+<h3 class="font-headline-lg text-headline-lg mb-2">Nutrition</h3>
+<p class="font-body-md text-body-md opacity-90 max-w-xs">Premium blends for every life stage and health need.</p>
+<span class="inline-flex items-center gap-2 mt-4 text-label-md font-bold uppercase tracking-wider group-hover:translate-x-2 transition-transform">Explore <span class="material-symbols-outlined">chevron_right</span></span>
+</div>
+</a>
+<!-- Toys -->
+<a class="md:col-span-4 group relative overflow-hidden rounded-3xl premium-card" href="#">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" data-alt="A collection of designer cat toys made from felt, wood, and feathers in muted terracotta and sage colors. The toys are arranged on a light grey stone surface with soft ambient lighting, emphasizing high-end design and natural materials." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUgwJKuGIVApXi1NG3wMRA2MU2UrxS_jkreJAm_xVU2JFn6G8nd1uE-2wQXcf0nRqseQrUAY-bOIEpDkfR0qwZR6WXg8-UtAXmTUZCzik-UPjh_26UtLnVscD4zaAWDYf0w0fWnw87a9CXDZa3O_8ZiAUg5o-BvNSoX84ImTcEmPmIGsOVhcqtaDec_zTX14432K69tdRNB9lCkpodwovAgWIi28MafyUP7Luvrr_ZcxduhLRP_3rTfoe0ueWBJDbBJvAZxfiXKH0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-8 left-8 text-white">
+<h3 class="font-headline-lg text-headline-lg mb-2">Toys</h3>
+<span class="inline-flex items-center gap-2 mt-4 text-label-md font-bold uppercase tracking-wider group-hover:translate-x-2 transition-transform">Explore <span class="material-symbols-outlined">chevron_right</span></span>
+</div>
+</a>
+<!-- Grooming -->
+<a class="md:col-span-4 group relative overflow-hidden rounded-3xl premium-card" href="#">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" data-alt="A serene spa-like setting for cat grooming with a soft mist, a wooden brush, and a fluffy white cat being pampered. The lighting is ethereal and tranquil, using a palette of soft whites and warm wood tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYNuNCdHn5uR0hzu-JYnY9Dg4tSif1oP9nsW65rvTXZivv_FdsHJ2Ci_T2-kZzNNp2pewb8dGesACAJGwuK6kCLOre8e6vPPhhSC-jrc6COkO2EXKBYJRpxUBWeNhv2EOd5Sxyn_pwoIe95l3FEAL6n45qe6ZcAVeDTA211H1AbCFB4KfKZ4Z45e-86b6_x-mzQgUB4pncKRRtX4s_Gv57uMkIfu-2s0V7y4_oEiBFydcVptUZJXUf0QIdHhdZnKYqKgG-3UJtcjo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-8 left-8 text-white">
+<h3 class="font-headline-lg text-headline-lg mb-2">Grooming</h3>
+<span class="inline-flex items-center gap-2 mt-4 text-label-md font-bold uppercase tracking-wider group-hover:translate-x-2 transition-transform">Explore <span class="material-symbols-outlined">chevron_right</span></span>
+</div>
+</a>
+<!-- Accessories (The Filler) -->
+<a class="md:col-span-8 group relative overflow-hidden rounded-3xl bg-secondary-container flex items-center justify-center p-12 overflow-hidden" href="#">
+<div class="text-center z-10">
+<h3 class="font-headline-lg text-headline-lg text-on-secondary-container mb-4">Lifestyle Accessories</h3>
+<p class="text-on-secondary-container/80 max-w-sm mx-auto mb-8">From designer collars to artisanal bowls, elevate every corner of their kingdom.</p>
+<div class="bg-on-secondary-container text-white px-8 py-3 rounded-full inline-block group-hover:scale-105 transition-transform">Shop Lifestyle</div>
+</div>
+<!-- Decorative Abstract Shapes -->
+<div class="absolute -top-12 -right-12 w-64 h-64 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all"></div>
+<div class="absolute -bottom-12 -left-12 w-64 h-64 bg-white/20 rounded-full blur-3xl group-hover:bg-white/40 transition-all"></div>
+</a>
+</div>
+</section>
+<!-- Brand Story Section -->
+<section class="py-24 bg-surface">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="rounded-[48px] overflow-hidden shadow-2xl h-[500px]">
+<img class="w-full h-full object-cover" data-alt="A documentary-style portrait of the founders of Anabul, a stylish couple in their 30s, interacting warmly with their cats in a brightly lit, modern office space filled with indoor plants and premium pet products. The style is professional yet warm and approachable, using a soft-focus background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCftZZAPtJC4d06cX8jHNBE_55Mxmy_Hp1puRZU0l0bnFhuig1tnGrJAo1m7bqzZ_ImD-TRqrIBiqsYO2x9nDSfT9yOsfLa5BR4I8HsINVveg8zjPd7sk4c9mA-qIMyuM2bUDcmayDA8GT3Tw0LcbMD2AJNqdT3z94wENhM3x35Z6ZX-r2W-fQD8-XrO4_KTkOV-lv4yN8H3nvw0Fj79tbGNM1c6NXBOjBIPZiMiDfoxvh5PLRd-dyK7ZmKdAsr-M1WMc5VqQPfGFA"/>
+</div>
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-8 text-primary">Born from a Promise.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">
+                        At Anabul, we believe that cats aren't just pets—they are soulful companions that bring unparalleled grace and joy into our lives. Our journey began when we couldn't find products that matched the quality and aesthetics of a modern home.
+                    </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 leading-relaxed">
+                        We spent two years traveling the globe to partner with organic farmers and artisan craftsmen who share our "Elevated Play" philosophy. Every item in our store is vet-approved, toxin-free, and designed to thrive in your living space.
+                    </p>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<p class="text-primary font-bold text-headline-md mb-2">100%</p>
+<p class="text-label-md uppercase tracking-widest text-on-surface-variant">Organic Ingredients</p>
+</div>
+<div>
+<p class="text-primary font-bold text-headline-md mb-2">24/7</p>
+<p class="text-label-md uppercase tracking-widest text-on-surface-variant">Expert Support</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-low mt-24">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center md:text-left">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Anabul</h3>
+<p class="text-on-surface-variant font-body-md mb-6 max-w-xs mx-auto md:mx-0">Elevating the lives of feline family members through premium curation and conscious care.</p>
+<div class="flex justify-center md:justify-start gap-4">
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-sm" href="#">
+<span class="material-symbols-outlined text-sm">face_nod</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-sm" href="#">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<h4 class="text-secondary font-bold mb-4 uppercase text-[12px] tracking-widest">Shop</h4>
+<ul class="space-y-3">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Nutrition</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Toys</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Grooming</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">New Arrivals</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-secondary font-bold mb-4 uppercase text-[12px] tracking-widest">Support</h4>
+<ul class="space-y-3">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Customer Service</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Shipping Info</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Returns</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">FAQ</a></li>
+</ul>
+</div>
+</div>
+<div>
+<h4 class="text-secondary font-bold mb-4 uppercase text-[12px] tracking-widest">The Newsletter</h4>
+<p class="text-on-surface-variant text-body-md mb-6">Join our community for exclusive early access and expert cat care tips.</p>
+<form class="flex flex-col gap-3">
+<input class="bg-white border-none rounded-full px-6 py-3 text-body-md focus:ring-2 focus:ring-primary-container outline-none transition-all" placeholder="Email Address" type="email"/>
+<button class="bg-primary text-on-primary py-3 rounded-full font-label-md hover:bg-primary-container transition-all active:scale-95">Subscribe</button>
+</form>
+</div>
+</div>
+<div class="mt-20 border-t border-outline/10 pt-8 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-on-surface-variant text-label-md">© 2024 Anabul. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-on-surface-variant text-[12px] hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant text-[12px] hover:text-primary" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Carousel Logic
+        const carousel = document.getElementById('carousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: 320, behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: -320, behavior: 'smooth' });
+        });
+
+        // Sticky Header effect on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('py-2', 'shadow-md');
+                nav.classList.remove('py-4', 'shadow-sm');
+            } else {
+                nav.classList.add('py-4', 'shadow-sm');
+                nav.classList.remove('py-2', 'shadow-md');
+            }
+        });
+    </script>
+</body></html>

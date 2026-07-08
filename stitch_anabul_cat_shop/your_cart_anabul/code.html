@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Anabul | Shopping Cart</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Plus+Jakarta+Sans:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&family=Quicksand:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#e2725b",
+                    "on-background": "#1b1c1c",
+                    "on-surface": "#1b1c1c",
+                    "on-secondary-fixed": "#07200f",
+                    "tertiary": "#605e5a",
+                    "secondary-container": "#c9e8cb",
+                    "outline": "#89726d",
+                    "secondary": "#4a654e",
+                    "error-container": "#ffdad6",
+                    "background": "#fcf9f8",
+                    "surface-dim": "#dcd9d9",
+                    "on-error-container": "#93000a",
+                    "tertiary-container": "#95928d",
+                    "primary-fixed": "#ffdad3",
+                    "surface-container-high": "#eae7e7",
+                    "surface-container-low": "#f6f3f2",
+                    "on-surface-variant": "#56423e",
+                    "on-primary-fixed": "#3e0500",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed": "#1c1c18",
+                    "surface-variant": "#e4e2e1",
+                    "outline-variant": "#ddc0ba",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#5a0d02",
+                    "tertiary-fixed-dim": "#c9c6c1",
+                    "surface-container-highest": "#e4e2e1",
+                    "inverse-surface": "#303030",
+                    "tertiary-fixed": "#e6e2dc",
+                    "surface": "#fcf9f8",
+                    "secondary-fixed-dim": "#b0ceb2",
+                    "primary-fixed-dim": "#ffb4a5",
+                    "secondary-fixed": "#cceace",
+                    "primary": "#9f402d",
+                    "on-tertiary-fixed-variant": "#484743",
+                    "inverse-on-surface": "#f3f0f0",
+                    "inverse-primary": "#ffb4a5",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#fcf9f8",
+                    "on-tertiary-container": "#2c2b28",
+                    "on-secondary-fixed-variant": "#334d38",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#4e6952",
+                    "on-primary-fixed-variant": "#802918",
+                    "surface-tint": "#9f402d",
+                    "surface-container": "#f0eded",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "40px",
+                    "base": "8px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Quicksand"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Quicksand"],
+                    "headline-lg": ["Quicksand"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-xl-mobile": ["Quicksand"],
+                    "headline-lg-mobile": ["Quicksand"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .soft-glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .ambient-card {
+            box-shadow: 0 8px 32px rgba(27, 28, 28, 0.05);
+        }
+        body {
+            background-color: #fcf9f8;
+            color: #1b1c1c;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-base">
+<span class="font-headline-md text-headline-md text-primary dark:text-primary-fixed font-bold tracking-tight">Anabul</span>
+</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="font-body-md text-label-md text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="#">Nutrition</a>
+<a class="font-body-md text-label-md text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="#">Toys</a>
+<a class="font-body-md text-label-md text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="#">Grooming</a>
+</div>
+<div class="flex items-center gap-gutter">
+<button class="relative text-primary dark:text-primary-fixed border-b-2 border-primary pb-1 active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="absolute -top-2 -right-2 bg-primary-container text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">2</span>
+</button>
+<button class="md:hidden text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<header class="mb-12">
+<h1 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl mb-2">Your Cart</h1>
+<p class="font-body-md text-on-surface-variant">Review your selection of premium essentials for your companion.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Items Column -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- Item 1 -->
+<div class="ambient-card bg-surface-container-lowest p-6 rounded-xl flex flex-col md:flex-row gap-6 group transition-all hover:bg-white">
+<div class="w-full md:w-32 h-32 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A premium bag of artisanal grain-free cat food styled on a minimalist wooden surface. Soft, warm morning light highlights the elegant Terracotta-colored packaging and Sage Green organic labels. The background is a clean, creamy off-white kitchen interior, creating an atmosphere of safety and high-end wellness for pets." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCU5ryt1fYQ_IqcUdfxknwI9cg0orqbCInVZ5FpWAYSoSrosmQNfcDNOoAFeQX8IsjDrtltXgX5YM67fB39ru7oGbtut6kXrprZlr4KmTLcyyHgk-XijTystYaKuUhPop_m_YjaeGGsOaydlSCMM598acUr_Pww2EJAC8ZVy_TxyPm8KGjkEJmsiyl6vPj1zA-P25p1ECJM_Hm4tB6B747mR1ecLcdmak6kNjudgYJzuzV5h9o_IN6EG8n_a-Sj5Sn_7OoTrfQ6bxg"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<span class="bg-secondary-container text-on-secondary-container text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-wider mb-2 inline-block">Nutrition</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Artisanal Ocean Medley</h3>
+<p class="text-on-surface-variant text-label-md mt-1 italic">Wild-caught salmon and seaweed</p>
+</div>
+<span class="font-headline-md text-headline-md text-primary">$34.00</span>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center bg-surface-container-low rounded-full px-2 py-1">
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-secondary hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="remove">remove</span>
+</button>
+<span class="w-10 text-center font-bold text-on-surface">1</span>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-secondary hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</button>
+</div>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-error transition-colors text-label-md font-semibold">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+                                Remove
+                            </button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="ambient-card bg-surface-container-lowest p-6 rounded-xl flex flex-col md:flex-row gap-6 group transition-all hover:bg-white">
+<div class="w-full md:w-32 h-32 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A minimalist, sculptural cat scratching post made of natural sisal and light-colored oak wood. The design is modern-organic with soft curves. It is placed in a bright living room with large windows, surrounded by a few lush green plants. The lighting is soft and airy, emphasizing the premium quality and tactile texture of the materials." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUAMJ281s2AqLAy2PNoRcP30Z0NEkBHf4kEaow64k-THIL2-0ujKKkRSJ-dUxgF5MiOD-yGZNrFW4Js7O4EtHBuAjZ4cKqcMEZdByBMDezsypst2ARNo5gZUBqnv6n4VjkdakxDImpwuZXvkLfnc3u5_EA_LdKSme6Tma2T2SSsTLuDwZ91Y_I-w4KPZIieXlN2KzoMwsPQXZlC5R7tBDVx939-u4uRMPq3BT8i6B0vMiRDlh43sXbDT1DMSF2kGM7qiCngmr9r1g"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<span class="bg-primary-container text-on-primary text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-wider mb-2 inline-block">New Arrival</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Sculptural Oak Tower</h3>
+<p class="text-on-surface-variant text-label-md mt-1 italic">Solid Oak & Premium Sisal</p>
+</div>
+<span class="font-headline-md text-headline-md text-primary">$128.00</span>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center bg-surface-container-low rounded-full px-2 py-1">
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-secondary hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="remove">remove</span>
+</button>
+<span class="w-10 text-center font-bold text-on-surface">1</span>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-secondary hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</button>
+</div>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-error transition-colors text-label-md font-semibold">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+                                Remove
+                            </button>
+</div>
+</div>
+</div>
+<!-- Suggested Add-ons (Bento-lite) -->
+<div class="mt-16">
+<h4 class="font-headline-md text-headline-md mb-6">Complete the Experience</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-secondary-container/30 p-4 rounded-xl flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg bg-white overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close-up of organic catnip treats in a minimalist glass jar with a Sage Green lid. Soft-focus background of a cozy home. Modern organic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaQnN36X6ILigwGlm1g4QCPPzFx_fesZk6-Kfv1hoYovOt6nk80O4CkFbmMtO1Bt378K_OILf_VFhlftVozYd031IkLn-otv8KUlhSzOPgtz1MKiwCjmUI8AkZsUwkBDTM0Ys7IOSB0a9RQVj__LQWr2Kc6mbfbIRgHw1H5m-FN-ZeYbjTbY0sLLAAxaYprrjMFKDTtcYw9DbotlNzDNc3aCUnWilWuA5KAQmq46hlHRUwNO6nqWnBKR64BPKz7wJZwvMczU1_k4I"/>
+</div>
+<div class="flex-grow">
+<p class="font-bold text-on-secondary-container text-sm">Organic Calming Treats</p>
+<p class="text-secondary text-xs">$12.00</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center shadow-sm hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-lg" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+<div class="bg-primary-container/10 p-4 rounded-xl flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg bg-white overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Minimalist ceramic food bowl in a soft terracotta hue with an ergonomic slanted design. Photographed against a clean neutral background with elegant soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8LzcUABrT5Xan1UGJKM1gbaSj10mquRIxlbznkSL2NGFPor4Tq97cZl9YQzRwBMYiawAeBfKDYPew1hIyLYapBFGZpV05eSY52QWmnTuQpibPJfMUGSRLJtYhFj3D-f5k6kOzp9sVx4j7UKv0PemcJx3VHoWmzN6pRy1hqbKtssqYofGfnASpkyklcNhkmpOEI0tnlHrKGv32dm4evvo8UsgkWyxKIApBF88_WAztX9eWaSf69JAERBzXH_iDXlEyZXXfoyDObU4"/>
+</div>
+<div class="flex-grow">
+<p class="font-bold text-primary text-sm">Ergonomic Ceramic Bowl</p>
+<p class="text-on-surface-variant text-xs">$24.00</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-sm hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-lg" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Summary Column -->
+<aside class="lg:col-span-4 sticky top-32">
+<div class="ambient-card bg-surface-container-low p-8 rounded-xl border border-outline/10">
+<h2 class="font-headline-md text-headline-md mb-8">Order Summary</h2>
+<div class="space-y-4 mb-8 border-b border-outline-variant pb-8">
+<div class="flex justify-between font-body-md text-on-surface-variant">
+<span>Subtotal</span>
+<span class="text-on-surface">$162.00</span>
+</div>
+<div class="flex justify-between font-body-md text-on-surface-variant">
+<span>Estimated Shipping</span>
+<span class="text-secondary font-semibold">FREE</span>
+</div>
+<div class="flex justify-between font-body-md text-on-surface-variant">
+<span>Tax</span>
+<span class="text-on-surface">$8.10</span>
+</div>
+</div>
+<div class="flex justify-between items-center mb-10">
+<span class="font-headline-md text-headline-md">Total</span>
+<span class="font-headline-lg text-headline-lg text-primary">$170.10</span>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-full font-headline-md text-headline-md shadow-lg shadow-primary/20 hover:bg-primary-container hover:-translate-y-1 transition-all duration-300 active:scale-95 flex items-center justify-center gap-2">
+                        Proceed to Checkout
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<div class="mt-8 flex items-center justify-center gap-4 grayscale opacity-50">
+<span class="material-symbols-outlined text-2xl" data-icon="security">security</span>
+<p class="text-[10px] leading-tight text-center uppercase tracking-widest font-bold">Secure checkout guaranteed</p>
+</div>
+</div>
+<div class="mt-6 p-6 rounded-xl bg-secondary-container/20 border border-secondary/10">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="local_shipping">local_shipping</span>
+<div>
+<p class="font-bold text-secondary text-sm">Climate Neutral Shipping</p>
+<p class="text-on-surface-variant text-xs mt-1">Every Anabul delivery is 100% carbon offset. For the planet and your home.</p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-low dark:bg-surface-container-high mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop max-w-container-max mx-auto text-center md:text-left">
+<div class="space-y-4">
+<span class="font-headline-md text-headline-md text-primary dark:text-primary-fixed block font-bold">Anabul</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Curated wellness for the modern feline and their discerning family.</p>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="font-label-md text-primary mb-2 uppercase tracking-widest text-[10px]">Company</h4>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="#">Customer Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="#">Shipping Info</a>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="font-label-md text-primary mb-2 uppercase tracking-widest text-[10px]">Connect</h4>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="#">Instagram</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-container transition-colors" href="#">Facebook</a>
+</div>
+</div>
+<div class="mt-12 text-center border-t border-outline/5 pt-8">
+<p class="font-body-md text-body-md text-on-surface-variant opacity-60">© 2024 Anabul. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Micro-interactions for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.style.transform = 'scale(0.95)';
+            });
+            button.addEventListener('mouseup', () => {
+                button.style.transform = '';
+            });
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = '';
+            });
+        });
+
+        // Floating ambient effect for the cart
+        window.addEventListener('scroll', () => {
+            const scrollVal = window.scrollY;
+            const glassElements = document.querySelectorAll('.soft-glass');
+            glassElements.forEach(el => {
+                el.style.backgroundColor = `rgba(255, 253, 252, ${Math.min(0.7 + scrollVal/1000, 0.95)})`;
+            });
+        });
+    </script>
+</body></html>
