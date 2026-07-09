@@ -56,3 +56,12 @@
   border-radius: 50%;
   margin: 2px auto 0;
 }
+
+/* Premium spring transitions for the auction cards */
+.auction-card {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+.auction-card:hover {
+  transform: translateY(-8px);
+}
+
