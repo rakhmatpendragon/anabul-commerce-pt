@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export interface Companion {
   id: string;
@@ -30,13 +31,15 @@ export default function CompanionCard({ companion }: CompanionCardProps) {
     <div className="group bg-surface-container-lowest rounded-[16px] overflow-hidden elevated-shadow transition-all duration-300 hover:-translate-y-2 flex flex-col">
       {/* Image */}
       <div className="relative aspect-[4/5] overflow-hidden">
-        <img
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          src={companion.imageUrl}
-          alt={`${companion.name} - ${companion.breed}`}
-        />
+        <Link to={`/cats/${companion.id}`} className="w-full h-full block">
+          <img
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            src={companion.imageUrl}
+            alt={`${companion.name} - ${companion.breed}`}
+          />
+        </Link>
         {companion.badge && (
-          <div className="absolute top-4 left-4">
+          <div className="absolute top-4 left-4 pointer-events-none">
             <span
               className={`px-3 py-1 rounded-full text-label-md shadow-sm ${
                 badgeStyles[companion.badge] || 'bg-secondary text-on-secondary'
@@ -49,7 +52,7 @@ export default function CompanionCard({ companion }: CompanionCardProps) {
         <button
           className={`absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center transition-transform hover:scale-110 active:scale-95 ${
             isFavorite ? 'text-primary' : 'text-on-surface-variant'
-          }`}
+          } z-10`}
           onClick={() => setIsFavorite(!isFavorite)}
         >
           <span
@@ -65,9 +68,11 @@ export default function CompanionCard({ companion }: CompanionCardProps) {
       <div className="p-6 flex flex-col flex-grow">
         <div className="flex justify-between items-start mb-2">
           <div>
-            <h3 className="font-headline-md text-headline-md text-on-surface">
-              {companion.name}
-            </h3>
+            <Link to={`/cats/${companion.id}`} className="hover:text-primary transition-colors">
+              <h3 className="font-headline-md text-headline-md text-on-surface">
+                {companion.name}
+              </h3>
+            </Link>
             <p className="text-label-md text-on-surface-variant">{companion.breed}</p>
           </div>
           <span className="text-primary font-bold text-headline-md">
@@ -88,9 +93,12 @@ export default function CompanionCard({ companion }: CompanionCardProps) {
           </div>
         </div>
 
-        <button className="w-full mt-auto bg-primary text-on-primary py-3 px-6 rounded-full font-label-md transition-all duration-200 hover:bg-primary-container active:scale-95 elevated-shadow">
-          Buy Now
-        </button>
+        <Link
+          to={`/cats/${companion.id}`}
+          className="w-full mt-auto bg-primary text-on-primary py-3 px-6 rounded-full font-label-md transition-all duration-200 hover:bg-primary-container active:scale-95 elevated-shadow text-center"
+        >
+          View Details
+        </Link>
       </div>
     </div>
   );
