@@ -8,6 +8,7 @@ const navLinks = [
   { label: 'Nutrition', to: '/shop' },
   { label: 'Toys', to: '/shop' },
   { label: 'Grooming', to: '/shop' },
+  { label: 'Auctions', to: '/auctions' },
 ];
 
 export default function Navbar() {
@@ -45,7 +46,7 @@ export default function Navbar() {
                 key={link.label}
                 to={link.to}
                 className={`font-body-md text-label-md transition-colors duration-200 ${
-                  location.pathname === link.to && link.label === 'Home'
+                  location.pathname === link.to && (link.label === 'Home' || link.label === 'Auctions')
                     ? 'text-primary border-b-2 border-primary pb-1 active-dot'
                     : 'text-on-surface-variant hover:text-primary-container'
                 }`}
