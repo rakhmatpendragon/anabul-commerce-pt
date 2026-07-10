@@ -1,33 +1,71 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { catsData } from '../data/catsData';
 
+// Maps temperament to icons
+const temperamentIconMap: Record<string, string> = {
+  'Good with Kids': 'child_care',
+  'Calm Nature': 'spa',
+  'Affectionate': 'favorite',
+  'Gentle Spirit': 'spa',
+  'Quiet & Sweet': 'volume_mute',
+  'Loves Pampering': 'content_cut',
+  'Playful': 'sports_esports',
+  'Active Climber': 'vertical_align_top',
+  'Highly Social': 'groups',
+  'Curious': 'search',
+  'Vocal & Chatty': 'chat_bubble',
+  'Highly Intelligent': 'psychology',
+  'Docile & Calm': 'spa',
+  'Loves Cuddles': 'volunteer_activism',
+  'Kid-Friendly': 'child_care',
+  'Sweet-Tempered': 'sentiment_satisfied',
+  'Playful & Silly': 'mood',
+  'Gentle Nature': 'spa',
+  'High Energy': 'bolt',
+  'Intelligent': 'psychology',
+  'Athletic & Active': 'fitness_center',
+  'Playful & Fast': 'speed',
+  'Loving & Warm': 'wb_sunny',
+  'Highly Friendly': 'handshake'
+};
+
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();
   
-  // Default to Luna (ID: 1) if ID is not found or invalid
-  const cat = id && catsData[id] ? catsData[id] : catsData['1'];
+  const isValid = id && catsData[id];
+  // Default to Luna (ID: 1) if ID is not found or invalid only to prevent Hook initialization errors
+  const cat = isValid ? catsData[id] : catsData['1'];
 
   // State for interactive features
   const [heroImage, setHeroImage] = useState(cat.imageUrl);
-  const [isFavorite, setIsFavorite] = useState(false);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const [isApplicationStarted, setIsApplicationStarted] = useState(false);
 
-  // Update hero image if the cat changes
+  const cartTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const appTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
+  // Update state if the cat changes
   useEffect(() => {
     setHeroImage(cat.imageUrl);
-    setIsFavorite(false);
     setIsAddedToCart(false);
     setIsApplicationStarted(false);
-  }, [cat]);
+  }, [cat.id]);
+
+  // Clean up timers on unmount
+  useEffect(() => {
+    return () => {
+      if (cartTimerRef.current) clearTimeout(cartTimerRef.current);
+      if (appTimerRef.current) clearTimeout(appTimerRef.current);
+    };
+  }, []);
 
   const handleBuyNow = () => {
     if (isAddedToCart) return;
     setIsAddedToCart(true);
-    setTimeout(() => {
+    cartTimerRef.current = setTimeout(() => {
       setIsAddedToCart(false);
     }, 3000);
   };
@@ -35,38 +73,35 @@ export default function ProductDetail() {
   const handleStartApplication = () => {
     if (isApplicationStarted) return;
     setIsApplicationStarted(true);
-    setTimeout(() => {
+    appTimerRef.current = setTimeout(() => {
       setIsApplicationStarted(false);
     }, 3000);
   };
 
-  // Maps temperament to icons
-  const temperamentIconMap: Record<string, string> = {
-    'Good with Kids': 'child_care',
-    'Calm Nature': 'spa',
-    'Affectionate': 'favorite',
-    'Gentle Spirit': 'spa',
-    'Quiet & Sweet': 'volume_mute',
-    'Loves Pampering': 'content_cut',
-    'Playful': 'sports_esports',
-    'Active Climber': 'vertical_align_top',
-    'Highly Social': 'groups',
-    'Curious': 'search',
-    'Vocal & Chatty': 'chat_bubble',
-    'Highly Intelligent': 'psychology',
-    'Docile & Calm': 'spa',
-    'Loves Cuddles': 'volunteer_activism',
-    'Kid-Friendly': 'child_care',
-    'Sweet-Tempered': 'sentiment_satisfied',
-    'Playful & Silly': 'mood',
-    'Gentle Nature': 'spa',
-    'High Energy': 'bolt',
-    'Intelligent': 'psychology',
-    'Athletic & Active': 'fitness_center',
-    'Playful & Fast': 'speed',
-    'Loving & Warm': 'wb_sunny',
-    'Highly Friendly': 'handshake'
-  };
+  // If the ID is invalid, show a friendly 404 screen
+  if (!isValid) {
+    return (
+      <>
+        <Navbar />
+        <main className="pt-20 bg-background text-on-surface font-body-md min-h-screen flex flex-col items-center justify-center px-margin-mobile text-center">
+          <div className="max-w-md bg-white p-8 rounded-3xl border border-outline-variant/30 shadow-[0_8px_30px_rgba(27,28,28,0.08)]">
+            <span className="material-symbols-outlined text-primary text-6xl mb-4 animate-bounce">pets</span>
+            <h1 className="font-headline-lg text-headline-lg text-on-surface mb-2">Cat Not Found</h1>
+            <p className="text-on-surface-variant mb-6">
+              The cat you are looking for might have been adopted or is no longer available.
+            </p>
+            <Link
+              to="/cats"
+              className="inline-block bg-primary text-white py-3 px-6 rounded-full font-label-md transition-all active:scale-95 duration-150 hover:bg-primary-container shadow-md"
+            >
+              Back to Catalog
+            </Link>
+          </div>
+        </main>
+        <Footer />
+      </>
+    );
+  }
 
   return (
     <>
@@ -85,7 +120,7 @@ export default function ProductDetail() {
             <div
               className="absolute inset-0"
               style={{
-                background: 'linear-gradient(to top, #fcf9f8 0%, rgba(252, 249, 248, 0) 50%)'
+                background: 'linear-gradient(to top, var(--color-background) 0%, transparent 50%)'
               }}
             />
           </div>
@@ -95,7 +130,7 @@ export default function ProductDetail() {
               <span className="bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full text-label-md uppercase tracking-wider mb-4 inline-block font-semibold">
                 Available for Adoption
               </span>
-              <h1 className="font-headline-xl text-headline-xl md:text-headline-xl text-primary mb-2">
+              <h1 className="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary mb-2">
                 {cat.name}
               </h1>
               <p className="font-headline-md text-headline-md text-tertiary mb-6">
@@ -253,8 +288,8 @@ export default function ProductDetail() {
                       alt={`${cat.name} main view`}
                     />
                   </div>
-                  {/* Map rest of gallery */}
-                  {cat.gallery.map((imgUrl, index) => (
+                  {/* Map rest of gallery, filtering out the main image if it exists to avoid duplicates */}
+                  {cat.gallery.filter((imgUrl) => imgUrl !== cat.imageUrl).map((imgUrl, index) => (
                     <div
                       key={index}
                       onClick={() => setHeroImage(imgUrl)}
